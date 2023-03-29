@@ -1,5 +1,6 @@
-FROM python
-ENV FOO=/bar
-WORKDIR ${FOO}   # WORKDIR /bar
-ADD . $FOO       # ADD . /bar
-COPY \$FOO /quux # COPY $FOO /quux
+FROM python:3
+RUN  mkdir WORK_REPO
+RUN  cd  WORK_REPO
+WORKDIR  /WORK_REPO
+ADD hello.py .
+CMD ["python", "-u", "hello.py"]
